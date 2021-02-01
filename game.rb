@@ -9,20 +9,10 @@ class Game
     @current_player = @player1
   end
 
-  # def score
-  #   p1Score = self.player1.lives
-  #   p2Score = self.player2.lives
-  #   puts "P1: #{p1Score} vs P2 #{p2Score}"
-  # end
-
-  def nextTurn
-    puts "----- NEW TURN -----"
+  def switchPlayer
     if self.current_player == self.player1
-      # puts "prev turn was player1"
-      # puts player2.inspect
       self.current_player = self.player2
     else
-      # puts "prev turn was player2"
       self.current_player = self.player1
     end 
   end

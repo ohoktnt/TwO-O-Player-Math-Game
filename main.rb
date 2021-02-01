@@ -1,12 +1,6 @@
-# Main file that will require all other files
-
-# prob contain the game loop
-# use gets.chomp for inputs and puts for output
-
 require './player'
 require './question'
 require './game'
-
 
 player1 = Player.new(1)
 player2 = Player.new(2)
@@ -29,16 +23,17 @@ while true
     game.current_player.wrongAnswer
   end
 
-  # move on to next round
-  # puts game.score
-  
-  # only if score is good
+  # move on to next round only if score is good
   if player1.lives == 0 || player2.lives == 0
-    game.nextTurn
+    # switch to winner player
+    game.switchPlayer
+    # initial game shut down
     game.gameOver
-  else 
+  else
+    # move to next round
     puts "P1: #{player1.lives}/3 vs P2: #{player2.lives}/3"
-    game.nextTurn
+    game.switchPlayer
+    puts "----- NEW TURN -----"
   end
 
 end
