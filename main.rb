@@ -13,7 +13,7 @@ player2 = Player.new(2)
 
 game = Game.new(player1, player2)
 
-while player1.lives > 0 && player2.lives > 0
+while true
   # fire question
   question = Question.new
   puts "#{game.current_player.name}: #{question.question}"
@@ -34,6 +34,7 @@ while player1.lives > 0 && player2.lives > 0
   
   # only if score is good
   if player1.lives == 0 || player2.lives == 0
+    game.nextTurn
     game.gameOver
   else 
     puts "P1: #{player1.lives}/3 vs P2: #{player2.lives}/3"
